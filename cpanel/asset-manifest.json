@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/cpanel/static/css/main.a32f7d2e.css",
+    "main.js": "/cpanel/static/js/main.f3877b7f.js",
+    "static/js/787.d5d098a1.chunk.js": "/cpanel/static/js/787.d5d098a1.chunk.js",
+    "static/media/ad6.jpg": "/cpanel/static/media/ad6.b0e3af16787fa9cf61fc.jpg",
+    "static/media/ad5.jpg": "/cpanel/static/media/ad5.46347c1ecb8c64139f6f.jpg",
+    "static/media/ad3.jpg": "/cpanel/static/media/ad3.bdf40aac483905b92f8d.jpg",
+    "static/media/ad1.jpg": "/cpanel/static/media/ad1.a3335f0053432ba7927d.jpg",
+    "static/media/ad2.jpg": "/cpanel/static/media/ad2.68997d7109e0b8657224.jpg",
+    "static/media/ad4.jpg": "/cpanel/static/media/ad4.55ac08f67f0585cb39ef.jpg",
+    "static/media/yt.png": "/cpanel/static/media/yt.8e82901b65b3c8f42a36.png",
+    "static/media/xhamster.png": "/cpanel/static/media/xhamster.bdc02e31de00e02daea4.png",
+    "static/media/ph.png": "/cpanel/static/media/ph.c7b625f668c50aa6428a.png",
+    "static/media/logo.svg": "/cpanel/static/media/logo.36f783fea3ca1bfece0e40e60bddccf6.svg",
+    "index.html": "/cpanel/index.html",
+    "main.a32f7d2e.css.map": "/cpanel/static/css/main.a32f7d2e.css.map",
+    "main.f3877b7f.js.map": "/cpanel/static/js/main.f3877b7f.js.map",
+    "787.d5d098a1.chunk.js.map": "/cpanel/static/js/787.d5d098a1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a32f7d2e.css",
+    "static/js/main.f3877b7f.js"
+  ]
+}
