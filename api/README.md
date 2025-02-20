@@ -1,4 +1,8 @@
-/home/rado/domains/{DOMAIN NAME}/public_html/api/
+git clone https://github.com/tubesbooster/tubesbooster-installation.git temp-repo
+mv temp-repo/* temp-repo/.* . 2>/dev/null
+rm -rf temp-repo
+
+composer update 
 
 Install supervisor and set up the worker
 
