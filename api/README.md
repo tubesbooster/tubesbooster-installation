@@ -1,5 +1,5 @@
 git clone https://github.com/tubesbooster/tubesbooster-installation.git temp-repo
-mv temp-repo/* temp-repo/.* . 2>/dev/null
+rsync -a temp-repo/ . 
 rm -rf temp-repo
 
 composer update 

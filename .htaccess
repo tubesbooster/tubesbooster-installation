@@ -9,7 +9,7 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 SetEnvIfNoCase User-Agent "(VK|TelegramBot|redditbot|bing|yandex|googlebot|bingbot|slurp|duckduckbot|baiduspider|facebookexternalhit|linkedinbot|twitterbot|whatsapp|curl|wget|httpclient|python-requests|PostmanRuntime|metatags\.io|scrapy|headlesschrome|phantomjs|puppeteer|selenium|SkypeUriPreview|libwww-perl/[0-9]+\.[0-9]+|Google-InspectionTool|ExoClickBot)" isBot
 SetEnvIfNoCase User-Agent "^$" isBot  # Empty User-Agent (used by some scrapers)
 
-# Route bot traffic to Rendertron
+# Route bot traffic to Static
 RewriteCond %{ENV:isBot} =1
 RewriteRule ^(.*)$ {DOMAIN}/api/public/api/static?url=%{REQUEST_URI} [P,L]
 
