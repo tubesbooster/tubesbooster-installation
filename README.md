@@ -31,13 +31,18 @@ Insert this to
 <pre>
 [program:laravel-worker]
 process_name=%(program_name)s_%(process_num)02d
-command=php /path-to-your-project/artisan queue:work --sleep=3 --tries=3
+command=php {PATH}/api/artisan queue:work --sleep=10 --tries=10
 autostart=true
 autorestart=true
-user=your-user-name
+user=root
 numprocs=1
 redirect_stderr=true
-stdout_logfile=/path-to-your-project/worker.log
+stdout_logfile={PATH}/api/worker.log
+stderr_logfile={PATH}/api/worker_error.log
+stopasgroup=true
+killasgroup=true
+startretries=3
+startsecs=30
 </pre>
 
 Restart supervisor
@@ -60,6 +65,11 @@ mv composer.phar /usr/local/bin/composer
 <pre>
 php artisan migrate
 php artisan db:seed
+php artisan db:seed --class=SettingsTableSeeder
+php artisan cache:clear
+php artisan config:clear
+php artisan view:clear
+php artisan route:clear
 </pre>
 
 <b>Install chromium</b>
