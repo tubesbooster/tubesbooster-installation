@@ -59,7 +59,7 @@ mv composer.phar /usr/local/bin/composer
 <b>Migrate the database</b>
 <pre>
 php artisan migrate
-php artisan migrate:seed
+php artisan db:seed
 </pre>
 
 <b>Install chromium</b>
