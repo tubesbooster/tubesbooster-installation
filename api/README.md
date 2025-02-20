@@ -1,6 +1,9 @@
-git clone https://github.com/tubesbooster/tubesbooster-installation.git temp-repo
-rsync -a temp-repo/ . 
-rm -rf temp-repo
+<b>System files import</b>
+<pre>
+    git clone https://github.com/tubesbooster/tubesbooster-installation.git temp-repo
+    rsync -a temp-repo/ . 
+    rm -rf temp-repo
+</pre>
 
 composer update 
 
