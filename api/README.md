@@ -4,6 +4,9 @@ rm -rf temp-repo
 
 composer update 
 
+input domain name to /.htaccess
+create .env from .env.example
+
 Install supervisor and set up the worker
 
 sudo yum install supervisor -y

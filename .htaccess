@@ -11,7 +11,7 @@ SetEnvIfNoCase User-Agent "^$" isBot  # Empty User-Agent (used by some scrapers)
 
 # Route bot traffic to Rendertron
 RewriteCond %{ENV:isBot} =1
-RewriteRule ^(.*)$ http://nakedmilfs.net/api/public/api/static?url=%{REQUEST_URI} [P,L]
+RewriteRule ^(.*)$ {DOMAIN}/api/public/api/static?url=%{REQUEST_URI} [P,L]
 
 # Serve index.html for non-bot traffic
 RewriteCond %{ENV:isBot} !=1
