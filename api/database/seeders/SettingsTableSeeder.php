@@ -22,5 +22,9 @@ class SettingsTableSeeder extends Seeder
             'key' => 'mainMenu',
             'value' => '{"1":{"name":"Videos","type":1,"page":"a","target":"_self","status":1},"2":{"name":"Galleries","type":1,"page":"b","target":"_self","status":1},"3":{"name":"Channels","type":1,"page":"c","target":"_self","status":1},"4":{"name":"Models","type":1,"page":"d","target":"_self","status":1},"5":{"name":"Categories","type":1,"page":"e","target":"_self","status":1},"6":{"name":"Tags","type":1,"page":"f","target":"_self","status":1}}'
         ]); 
+        DB::table('settings')->insert([
+            'key' => 'siteKeywords',
+            'value' => ''
+        ]); 
     }
 }

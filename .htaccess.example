@@ -6,11 +6,18 @@ RewriteCond %{HTTPS} !=on
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # Detect bot-like or scraper User-Agents (broad list)
-SetEnvIfNoCase User-Agent "(VK|TelegramBot|redditbot|bing|yandex|googlebot|bingbot|slurp|duckduckbot|baiduspider|facebookexternalhit|linkedinbot|twitterbot|whatsapp|curl|wget|httpclient|python-requests|PostmanRuntime|metatags\.io|scrapy|headlesschrome|phantomjs|puppeteer|selenium|SkypeUriPreview|libwww-perl/[0-9]+\.[0-9]+|Google-InspectionTool|ExoClickBot)" isBot
+SetEnvIfNoCase User-Agent "(Google-Site-Verification||VK|TelegramBot|redditbot|bing|yandex|googlebot|bingbot|slurp|duckduckbot|baiduspider|facebookexternalhit|linkedinbot|twitterbot|whatsapp|curl|wget|httpclient|python-requests|PostmanRuntime|metatags\.io|scrapy|headlesschrome|phantomjs|puppeteer|selenium|SkypeUriPreview|libwww-perl/[0-9]+\.[0-9]+|Google-InspectionTool|ExoClickBot)" isBot
 SetEnvIfNoCase User-Agent "^$" isBot  # Empty User-Agent (used by some scrapers)
 
-# Route bot traffic to Static
+# Route bot traffic to static view
 RewriteCond %{ENV:isBot} =1
+
+# Exclude /robots.txt from being redirected
+RewriteCond %{REQUEST_URI} !^/robots\.txt$
+
+# Exclude anything inside /api/public/ from being redirected
+RewriteCond %{REQUEST_URI} !^/api/public/
+
 RewriteRule ^(.*)$ {DOMAIN}/api/public/api/static?url=%{REQUEST_URI} [P,L]
 
 # Serve index.html for non-bot traffic

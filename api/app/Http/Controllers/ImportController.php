@@ -642,7 +642,9 @@ class ImportController extends Controller
                 $slug = explode("/", $url);
                 $slug = end($slug);
                 $embedUrl= "https://xhamster.com/embed/$code";
-                $source = file_get_contents("https://en.wpx.bio/videos/$slug");
+                $command = "timeout -k 10s 10s chromium-browser --no-sandbox --headless --disable-gpu --dump-dom --disable-software-rasterizer --disable-extensions $url";
+                exec($command, $output, $returnVar);
+                $source = implode(" ", $output);
                 $embed = $embedUrl;
                 $title = $this->parseData($source, '<title>', '|');
                 $description = $this->parseData($source, '"description":"', '"');
@@ -821,7 +823,7 @@ class ImportController extends Controller
             } catch(\Throwable $e){
                 $grabber->update(["new" => 0]);
                 $grabber->decrement('queue', 1);
-                
+                \Log::error("xHamster import error: $e");
                 //Update history log - failed
                 $grabberItem->update([
                     "status" => 3,
