@@ -228,6 +228,7 @@ class ContentCategoryController extends Controller
                     $value = "";
                 }
             }
+            $contentCategory["name"] = ucwords($contentCategory["name"]);
             $contentCategory["status"] = (int)$contentCategory["status"];
             $contentCategory["current_thumbnail"] = asset("category-thumbnails/".$contentCategory["thumbnail"]);
             $contentCategory["tags"] = $tags;
