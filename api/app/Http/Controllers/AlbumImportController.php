@@ -84,23 +84,14 @@ class AlbumImportController extends Controller
         //phpinfo();
         $urls = preg_split("/\r\n|\r|\n/", $request->url);
         foreach($urls as $url){
-            // Initialize cURL session
-            $ch = curl_init();
-
-            // Set cURL options
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-            // Execute cURL session and fetch the page source
-            $pageSource = curl_exec($ch);
-
+            $command = "timeout -k 10s 10s chromium-browser --no-sandbox --headless --disable-gpu --dump-dom --disable-software-rasterizer --disable-extensions $url";
+            exec($command, $output, $returnVar);
+            $pageSource = implode(" ", $output);
             if ($pageSource !== false) {
                 // Output or manipulate the page source as needed
             } else {
                 echo 'Failed to retrieve the page source.';
             }
-            // Close cURL session
-            curl_close($ch);
             $title = $this->parseData($pageSource, '<meta name="twitter:title" content="', '"');
             $title = str_replace([" | xHamster"], "", $title);
             $title = preg_replace('/ - \d{1,3} Pics$/', '', $title);
