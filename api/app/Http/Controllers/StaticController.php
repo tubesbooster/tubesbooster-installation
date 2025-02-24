@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class StaticController extends Controller {
     public function showStatic(Request $request){
         $url = $request->url;
-        $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? 'https' : 'http';
+        $protocol = 'https';
         $domain = $_SERVER['HTTP_HOST'];
         $fullUrl = $protocol . '://' . $domain . $url;
         $settingsController = new SettingsController;
