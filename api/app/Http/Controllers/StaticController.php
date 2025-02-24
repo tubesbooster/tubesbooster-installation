@@ -73,22 +73,22 @@ class StaticController extends Controller {
             <!-- Videos Being Watched Now Section -->
             <section>
                 <h2>Being Watched Now</h2>
-                <p>' . $videosBeingWatchedNow . '</p>
+                <ul>' . $videosBeingWatchedNow . '</ul>
             </section>
             <!-- Videos Recently Published Section -->
             <section>
                 <h2>Recently Published Videos</h2>
-                <p>' . $videosBeingWatchedNow . '</p>
+                <ul>' . $videosBeingWatchedNow . '</ul>
             </section>
             <!-- Galleries Section -->
             <section>
                 <h2>Galleries</h2>
-                <p>' . $albums . '</p>
+                <ul>' . $albums . '</ul>
             </section>
             <!-- Models Section -->
             <section>
                 <h2>Models</h2>
-                <p>' . $models . '</p>
+                <ul>' . $models . '</ul>
             </section>
         ';
 
@@ -984,6 +984,10 @@ class StaticController extends Controller {
 
         $image = '<img src="'.$imageUrl.'" alt="'.$title.'" width="640" />';   
 
+        if(empty($description)){
+            $description = $settings["siteDescription"];
+        }
+
         $htmlContent = '
             <!DOCTYPE html>
             <html lang="en">
@@ -1008,6 +1012,9 @@ class StaticController extends Controller {
                     <link rel="sitemap" type="application/xml" title="Sitemap" href="' . asset('sitemap.xml') . '">
                     <title>'.$title.'</title>
                     '.$schemaScript.'
+                    <style>
+                        a { font-size: 2em }
+                    </style>
                 </head>
                 <body>
                     <!-- Main Heading -->    
@@ -1018,6 +1025,8 @@ class StaticController extends Controller {
                 </body>
             </html>
         ';
+
+        $htmlContent = str_replace('http:', 'https:', $htmlContent);
     
         return response($htmlContent)->header('Content-Type', 'text/html');
     }
