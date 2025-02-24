@@ -14,6 +14,7 @@ composer update
 <b>Edit files</b>
 <li>input domain name to /.htaccess</li>
 <li>create .env from .env.example</li>
+<li>create config.js from config.js.example</li>
 
 <b>Install supervisor and set up the worker</b>
 
